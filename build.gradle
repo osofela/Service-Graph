@@ -1,0 +1,34 @@
+group 'uk.ac.bmth.servicecomp'
+version '0.6'
+
+buildscript {
+    ext.kotlin_version = '1.1.0-rc-91'
+    ext.jung_version = '2.1.1'
+
+    repositories {
+        maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.1' }
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = "uk.ac.bmth.servicecomp.servicegraph.Sample1Kt"
+
+//noinspection GroovyUnusedAssignment
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.1' }
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    compile "net.sf.jung:jung-visualization:$jung_version"
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
